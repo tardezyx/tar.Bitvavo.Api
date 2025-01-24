@@ -8,7 +8,6 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
     public bool? DisableMarketProtection { get; }
     public bool ResponseRequired { get; }
     public AccountOrderSelfTradePrevention? SelfTradePrevention { get; }
-    public AccountOrderTimeInForce? TimeInForce { get; }
 
     public AccountUpdateOrderMarketOptions(
       decimal? amount = null,
@@ -16,8 +15,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       decimal? amountRemaining = null,
       bool? disableMarketProtection = null,
       bool responseRequired = true,
-      AccountOrderSelfTradePrevention? selfTradePrevention = null,
-      AccountOrderTimeInForce? timeInForce = null
+      AccountOrderSelfTradePrevention? selfTradePrevention = null
     ) {
       Amount = amount;
       AmountQuote = amountQuote;
@@ -25,7 +23,6 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       DisableMarketProtection = disableMarketProtection;
       ResponseRequired = responseRequired;
       SelfTradePrevention = selfTradePrevention;
-      TimeInForce = timeInForce;
     }
   }
 }

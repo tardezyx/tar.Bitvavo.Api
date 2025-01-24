@@ -101,7 +101,6 @@ namespace tar.Bitvavo.Api {
             responseRequired: marketOptions.ResponseRequired,
             selfTradePrevention: marketOptions.SelfTradePrevention,
             side: requestOptions.Side,
-            timeInForce: marketOptions.TimeInForce,
             triggerAmount: accountPlaceOrderOptions.TriggerOptions?.TriggerAmount,
             triggerReference: requestOptions.PlaceOrderOptions.TriggerOptions?.TriggerReference,
             triggerType: accountPlaceOrderOptions.TriggerOptions?.TriggerType
@@ -139,7 +138,6 @@ namespace tar.Bitvavo.Api {
             orderId: requestOptions.OrderIdIsClientOrderId ? null : requestOptions.OrderId,
             responseRequired: marketOptions.ResponseRequired,
             selfTradePrevention: marketOptions.SelfTradePrevention,
-            timeInForce: marketOptions.TimeInForce,
             triggerAmount: accountUpdateOrderOptions.TriggerOptions?.TriggerAmount,
             triggerReference: accountUpdateOrderOptions.TriggerOptions?.TriggerReference,
             triggerType: accountUpdateOrderOptions.TriggerOptions?.TriggerType
