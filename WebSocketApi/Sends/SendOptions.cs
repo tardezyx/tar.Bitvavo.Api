@@ -8,6 +8,7 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
     public WebSocketAction Action { get; }
     public bool AuthRequired { get; }
     public string Base { get; }
+    public string ClientOrderId { get; }
     public int? Depth { get; }
     public List<SubscriptionChannel> Channels { get; }
     public DateTime? End { get; }
@@ -19,7 +20,6 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
     public int? MaxItems { get; }
     public Guid? OrderId { get; }
     public Guid? OrderIdFrom { get; }
-    public bool OrderIdIsClientOrderId { get; }
     public Guid? OrderIdTo { get; }
     public AccountOrderType? OrderType { get; }
     public int? Page { get; }
@@ -44,6 +44,7 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
       bool authRequired = false,
       string @base = null,
       List<SubscriptionChannel> channels = null,
+      string clientOrderId = null,
       int? depth = null,
       DateTime? end = null,
       DateTime? fromDate = null,
@@ -54,7 +55,6 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
       int? maxItems = null,
       Guid? orderId = null,
       Guid? orderIdFrom = null,
-      bool orderIdIsClientOrderId = false,
       Guid? orderIdTo = null,
       AccountOrderType? orderType = null,
       int? page = null,
@@ -78,6 +78,7 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
       AuthRequired = authRequired;
       Base = @base;
       Channels = channels;
+      ClientOrderId = clientOrderId;
       Depth = depth;
       End = end;
       FromDate = fromDate;
@@ -88,7 +89,6 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
       MaxItems = maxItems;
       OrderId = orderId;
       OrderIdFrom = orderIdFrom;
-      OrderIdIsClientOrderId = orderIdIsClientOrderId;
       OrderIdTo = orderIdTo;
       OrderType = orderType;
       Page = page;

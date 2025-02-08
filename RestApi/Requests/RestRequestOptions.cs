@@ -9,6 +9,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
     public string ApiPathMarket { get; }
     public bool AddSignature { get; }
     public string Base { get; }
+    public string ClientOrderId { get; }
     public int? Depth { get; }
     public DateTime? End { get; }
     public DateTime? FromDate { get; }
@@ -18,7 +19,6 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
     public int? MaxItems { get; }
     public Guid? OrderId { get; }
     public Guid? OrderIdFrom { get; }
-    public bool OrderIdIsClientOrderId { get; }
     public Guid? OrderIdTo { get; }
     public AccountOrderType? OrderType { get; }
     public int? Page { get; }
@@ -40,6 +40,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       string apiPathMarket = null,
       bool addSignature = false,
       string @base = null,
+      string clientOrderId = null,
       int? depth = null,
       DateTime? end = null,
       DateTime? fromDate = null,
@@ -49,7 +50,6 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       int? maxItems = null,
       Guid? orderId = null,
       Guid? orderIdFrom = null,
-      bool orderIdIsClientOrderId = false,
       Guid? orderIdTo = null,
       AccountOrderType? orderType = null,
       int? page = null,
@@ -70,6 +70,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       ApiPathMarket = apiPathMarket;
       AddSignature = addSignature;
       Base = @base;
+      ClientOrderId = clientOrderId;
       Depth = depth;
       End = end;
       FromDate = fromDate;
@@ -79,7 +80,6 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       MaxItems = maxItems;
       OrderId = orderId;
       OrderIdFrom = orderIdFrom;
-      OrderIdIsClientOrderId = orderIdIsClientOrderId;
       OrderIdTo = orderIdTo;
       OrderType = orderType;
       Page = page;

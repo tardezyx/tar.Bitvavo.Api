@@ -13,7 +13,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
     public decimal? AmountQuote { get; }
     [JsonConverter(typeof(DecimalConverter))]
     public decimal? AmountRemaining { get; }
-    public Guid? ClientOrderId { get; }
+    public string ClientOrderId { get; }
     public bool? DisableMarketProtection { get; }
     public string Market { get; }
     public Guid? OrderId { get; }
@@ -38,7 +38,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
       decimal? amount = null,
       decimal? amountQuote = null,
       decimal? amountRemaining = null,
-      Guid? clientOrderId = null,
+      string clientOrderId = null,
       bool? disableMarketProtection = null,
       string market = null,
       Guid? orderId = null,

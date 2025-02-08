@@ -178,16 +178,16 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public Response<AccountOrderResponse> GetOrder(
       string market,
-      Guid orderId,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Get,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
-        orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId
+        orderId: orderId
       );
 
       return _restApi.SendRequest<AccountOrderResponse>(requestOptions);
@@ -195,16 +195,16 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public async Task<Response<AccountOrderResponse>> GetOrderAsync(
       string market,
-      Guid orderId,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Get,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
-        orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId
+        orderId: orderId
       );
 
       return await _restApi.SendRequestAsync<AccountOrderResponse>(requestOptions);

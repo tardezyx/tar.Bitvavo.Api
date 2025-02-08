@@ -1,11 +1,10 @@
-﻿using System;
-using tar.Bitvavo.Api.Enums;
+﻿using tar.Bitvavo.Api.Enums;
 
 namespace tar.Bitvavo.Api.RestApi.Requests {
   public class AccountPlaceOrderMarketOptions {
     public decimal? Amount { get; }
     public decimal? AmountQuote { get; }
-    public Guid? ClientOrderId { get; }
+    public string ClientOrderId { get; }
     public bool DisableMarketProtection { get; }
     public bool ResponseRequired { get; }
     public AccountOrderSelfTradePrevention SelfTradePrevention { get; }
@@ -13,7 +12,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
     public AccountPlaceOrderMarketOptions(
       decimal? amount = null,
       bool amountIsAmountQuote = false,
-      Guid? clientOrderId = null,
+      string clientOrderId = null,
       bool disableMarketProtection = false,
       bool responseRequired = true,
       AccountOrderSelfTradePrevention selfTradePrevention = AccountOrderSelfTradePrevention.DecrementAndCancel

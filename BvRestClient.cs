@@ -113,9 +113,9 @@ namespace tar.Bitvavo.Api {
           return new RestRequestBody(
             amount: limitOptions.Amount,
             amountRemaining: limitOptions.AmountRemaining,
-            clientOrderId: requestOptions.OrderIdIsClientOrderId ? requestOptions.OrderId : null,
+            clientOrderId: requestOptions.ClientOrderId,
             market: requestOptions.Market,
-            orderId: requestOptions.OrderIdIsClientOrderId ? null : requestOptions.OrderId,
+            orderId: requestOptions.OrderId,
             postOnly: limitOptions.PostOnly,
             price: limitOptions.Price,
             responseRequired: limitOptions.ResponseRequired,
@@ -132,10 +132,10 @@ namespace tar.Bitvavo.Api {
             amount: marketOptions.Amount,
             amountQuote: marketOptions.AmountQuote,
             amountRemaining: marketOptions.AmountRemaining,
-            clientOrderId: requestOptions.OrderIdIsClientOrderId ? requestOptions.OrderId : null,
+            clientOrderId: requestOptions.ClientOrderId,
             disableMarketProtection: marketOptions.DisableMarketProtection,
             market: requestOptions.Market,
-            orderId: requestOptions.OrderIdIsClientOrderId ? null : requestOptions.OrderId,
+            orderId: requestOptions.OrderId,
             responseRequired: marketOptions.ResponseRequired,
             selfTradePrevention: marketOptions.SelfTradePrevention,
             triggerAmount: accountUpdateOrderOptions.TriggerOptions?.TriggerAmount,
@@ -168,6 +168,10 @@ namespace tar.Bitvavo.Api {
         request.AddParameter(name: "base", value: requestOptions.Base);
       }
 
+      if (requestOptions.ClientOrderId.HasText()) {
+        request.AddParameter(name: "clientOrderId", value: requestOptions.ClientOrderId);
+      }
+
       if (requestOptions.Depth is int validDepth) {
         request.AddParameter(name: "depth", value: Math.Max(1, validDepth));
       }
@@ -197,11 +201,7 @@ namespace tar.Bitvavo.Api {
       }
 
       if (requestOptions.OrderId is Guid validOrderId) {
-        if (requestOptions.OrderIdIsClientOrderId) {
-          request.AddParameter(name: "clientOrderId", value: validOrderId.ToString());
-        } else {
-          request.AddParameter(name: "orderId", value: validOrderId.ToString());
-        }
+        request.AddParameter(name: "orderId", value: validOrderId.ToString());
       }
 
       if (requestOptions.OrderIdFrom is Guid validOrderIdFrom) {

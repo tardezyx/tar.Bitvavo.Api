@@ -14,16 +14,16 @@ namespace tar.Bitvavo.Api.WebSocketApi {
 
     public async Task CancelOrderAsync(
       string market,
-      Guid orderId,
-      bool orderIdIsClientOrderId = false,
+      Guid orderId = default,
+      string clientOrderId = null,
       long? requestId = null
     ) {
       SendOptions sendOptions = new SendOptions(
         action: WebSocketAction.AccountCancelOrder,
         authRequired: true,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         requestId: requestId
       );
 
@@ -180,17 +180,17 @@ namespace tar.Bitvavo.Api.WebSocketApi {
 
     public async Task UpdateLimitOrderAsync(
       string market,
-      Guid orderId,
       AccountUpdateOrderLimitOptions limitOptions,
-      bool orderIdIsClientOrderId = false,
+      Guid orderId = default,
+      string clientOrderId = null,
       long? requestId = null
     ) {
       SendOptions sendOptions = new SendOptions(
         action: WebSocketAction.AccountUpdateOrder,
         authRequired: true,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         requestId: requestId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           limitOptions: limitOptions
@@ -202,18 +202,18 @@ namespace tar.Bitvavo.Api.WebSocketApi {
 
     public async Task UpdateStopLossTakeProfitLimitOrderAsync(
       string market,
-      Guid orderId,
       AccountUpdateOrderLimitOptions limitOptions,
       AccountOrderTriggerOptions triggerOptions,
-      bool orderIdIsClientOrderId = false,
+      Guid orderId = default,
+      string clientOrderId = null,
       long? requestId = null
     ) {
       SendOptions sendOptions = new SendOptions(
         action: WebSocketAction.AccountUpdateOrder,
         authRequired: true,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         requestId: requestId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           limitOptions: limitOptions,
@@ -226,18 +226,18 @@ namespace tar.Bitvavo.Api.WebSocketApi {
 
     public async Task UpdateStopLossTakeProfitOrderAsync(
       string market,
-      Guid orderId,
       AccountUpdateOrderMarketOptions marketOptions,
       AccountOrderTriggerOptions triggerOptions,
-      bool orderIdIsClientOrderId = false,
+      Guid orderId = default,
+      string clientOrderId = null,
       long? requestId = null
     ) {
       SendOptions sendOptions = new SendOptions(
         action: WebSocketAction.AccountUpdateOrder,
         authRequired: true,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         requestId: requestId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           marketOptions: marketOptions,

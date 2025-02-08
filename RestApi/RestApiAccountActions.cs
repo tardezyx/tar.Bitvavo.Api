@@ -16,16 +16,16 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public Response<AccountCancelOrderResponse> CancelOrder(
       string market,
-      Guid orderId,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Delete,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
-        orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId
+        orderId: orderId
       );
 
       return _restApi.SendRequest<AccountCancelOrderResponse>(requestOptions);
@@ -33,16 +33,16 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public async Task<Response<AccountCancelOrderResponse>> CancelOrderAsync(
       string market,
-      Guid orderId,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Delete,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
-        orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId
+        orderId: orderId
       );
 
       return await _restApi.SendRequestAsync<AccountCancelOrderResponse>(requestOptions);
@@ -328,17 +328,17 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public Response<AccountOrderResponse> UpdateLimitOrder(
       string market,
-      Guid orderId,
       AccountUpdateOrderLimitOptions limitOptions,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Put,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           limitOptions: limitOptions
         )
@@ -349,17 +349,17 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public async Task<Response<AccountOrderResponse>> UpdateLimitOrderAsync(
       string market,
-      Guid orderId,
       AccountUpdateOrderLimitOptions limitOptions,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Put,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           limitOptions: limitOptions
         )
@@ -370,18 +370,18 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public Response<AccountOrderResponse> UpdateStopLossTakeProfitLimitOrder(
       string market,
-      Guid orderId,
       AccountUpdateOrderLimitOptions limitOptions,
       AccountOrderTriggerOptions triggerOptions,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Put,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           limitOptions: limitOptions,
           triggerOptions: triggerOptions
@@ -393,18 +393,18 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public async Task<Response<AccountOrderResponse>> UpdateStopLossTakeProfitLimitOrderAsync(
       string market,
-      Guid orderId,
       AccountUpdateOrderLimitOptions limitOptions,
       AccountOrderTriggerOptions triggerOptions,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Put,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           limitOptions: limitOptions,
           triggerOptions: triggerOptions
@@ -416,18 +416,18 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public Response<AccountOrderResponse> UpdateStopLossTakeProfitOrder(
       string market,
-      Guid orderId,
       AccountUpdateOrderMarketOptions marketOptions,
       AccountOrderTriggerOptions triggerOptions,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Put,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           marketOptions: marketOptions,
           triggerOptions: triggerOptions
@@ -439,18 +439,18 @@ namespace tar.Bitvavo.Api.RestApi {
 
     public async Task<Response<AccountOrderResponse>> UpdateStopLossTakeProfitOrderAsync(
       string market,
-      Guid orderId,
       AccountUpdateOrderMarketOptions marketOptions,
       AccountOrderTriggerOptions triggerOptions,
-      bool orderIdIsClientOrderId = false
+      Guid orderId = default,
+      string clientOrderId = null
     ) {
       RestRequestOptions requestOptions = new RestRequestOptions(
         addSignature: true,
         apiMethod: Method.Put,
         apiPath: RestApiPath.Order,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         updateOrderOptions: new AccountUpdateOrderOptions(
           marketOptions: marketOptions,
           triggerOptions: triggerOptions

@@ -7,8 +7,8 @@ using tar.Bitvavo.Api.RestApi.Responses;
 
 namespace tar.Bitvavo.Api.RestApi {
   public interface IRestApiAccountActions {
-    Response<AccountCancelOrderResponse> CancelOrder(string market, Guid orderId, bool orderIdIsClientOrderId = false);
-    Task<Response<AccountCancelOrderResponse>> CancelOrderAsync(string market, Guid orderId, bool orderIdIsClientOrderId = false);
+    Response<AccountCancelOrderResponse> CancelOrder(string market, Guid orderId = default, string clientOrderId = null);
+    Task<Response<AccountCancelOrderResponse>> CancelOrderAsync(string market, Guid orderId = default, string clientOrderId = null);
     Response<List<AccountCancelOrderResponse>> CancelOrders(string market);
     Task<Response<List<AccountCancelOrderResponse>>> CancelOrdersAsync(string market);
     Response<AccountOrderResponse> PlaceLimitOrder(string market, TransactionSide side, AccountPlaceOrderLimitOptions limitOptions);
@@ -23,12 +23,12 @@ namespace tar.Bitvavo.Api.RestApi {
     Task<Response<AccountOrderResponse>> PlaceTakeProfitLimitOrderAsync(string market, TransactionSide side, AccountPlaceOrderLimitOptions limitOptions, AccountOrderTriggerOptions triggerOptions);
     Response<AccountOrderResponse> PlaceTakeProfitOrder(string market, TransactionSide side, AccountPlaceOrderMarketOptions marketOptions, AccountOrderTriggerOptions triggerOptions);
     Task<Response<AccountOrderResponse>> PlaceTakeProfitOrderAsync(string market, TransactionSide side, AccountPlaceOrderMarketOptions marketOptions, AccountOrderTriggerOptions triggerOptions);
-    Response<AccountOrderResponse> UpdateLimitOrder(string market, Guid orderId, AccountUpdateOrderLimitOptions limitOptions, bool orderIdIsClientOrderId = false);
-    Task<Response<AccountOrderResponse>> UpdateLimitOrderAsync(string market, Guid orderId, AccountUpdateOrderLimitOptions limitOptions, bool orderIdIsClientOrderId = false);
-    Response<AccountOrderResponse> UpdateStopLossTakeProfitLimitOrder(string market, Guid orderId, AccountUpdateOrderLimitOptions limitOptions, AccountOrderTriggerOptions triggerOptions, bool orderIdIsClientOrderId = false);
-    Task<Response<AccountOrderResponse>> UpdateStopLossTakeProfitLimitOrderAsync(string market, Guid orderId, AccountUpdateOrderLimitOptions limitOptions, AccountOrderTriggerOptions triggerOptions, bool orderIdIsClientOrderId = false);
-    Response<AccountOrderResponse> UpdateStopLossTakeProfitOrder(string market, Guid orderId, AccountUpdateOrderMarketOptions marketOptions, AccountOrderTriggerOptions triggerOptions, bool orderIdIsClientOrderId = false);
-    Task<Response<AccountOrderResponse>> UpdateStopLossTakeProfitOrderAsync(string market, Guid orderId, AccountUpdateOrderMarketOptions marketOptions, AccountOrderTriggerOptions triggerOptions, bool orderIdIsClientOrderId = false);
+    Response<AccountOrderResponse> UpdateLimitOrder(string market, AccountUpdateOrderLimitOptions limitOptions, Guid orderId = default, string clientOrderId = null);
+    Task<Response<AccountOrderResponse>> UpdateLimitOrderAsync(string market, AccountUpdateOrderLimitOptions limitOptions, Guid orderId = default, string clientOrderId = null);
+    Response<AccountOrderResponse> UpdateStopLossTakeProfitLimitOrder(string market, AccountUpdateOrderLimitOptions limitOptions, AccountOrderTriggerOptions triggerOptions, Guid orderId = default, string clientOrderId = null);
+    Task<Response<AccountOrderResponse>> UpdateStopLossTakeProfitLimitOrderAsync(string market, AccountUpdateOrderLimitOptions limitOptions, AccountOrderTriggerOptions triggerOptions, Guid orderId = default, string clientOrderId = null);
+    Response<AccountOrderResponse> UpdateStopLossTakeProfitOrder(string market, AccountUpdateOrderMarketOptions marketOptions, AccountOrderTriggerOptions triggerOptions, Guid orderId = default, string clientOrderId = null);
+    Task<Response<AccountOrderResponse>> UpdateStopLossTakeProfitOrderAsync(string market, AccountUpdateOrderMarketOptions marketOptions, AccountOrderTriggerOptions triggerOptions, Guid orderId = default, string clientOrderId = null);
     Response<AccountWithdrawAssetResponse> WithdrawAsset(AccountWithdrawal withdrawal);
     Task<Response<AccountWithdrawAssetResponse>> WithdrawAssetAsync(AccountWithdrawal withdrawal);
   }

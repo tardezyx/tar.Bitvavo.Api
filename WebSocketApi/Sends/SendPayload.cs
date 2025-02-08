@@ -18,7 +18,7 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
     public decimal? AmountRemaining { get; }
     public string Base { get; }
     public List<SubscriptionChannel> Channels { get; }
-    public Guid? ClientOrderId { get; }
+    public string ClientOrderId { get; }
     public int? Depth { get; }
     public bool? DisableMarketProtection { get; }
     [JsonConverter(typeof(DateTimeConverter))]
@@ -70,7 +70,7 @@ namespace tar.Bitvavo.Api.WebSocketApi.Sends {
       decimal? amountRemaining = null,
       string @base = null,
       List<SubscriptionChannel> channels = null,
-      Guid? clientOrderId = null,
+      string clientOrderId = null,
       int? depth = null,
       bool? disableMarketProtection = null,
       DateTime? end = null,

@@ -1,10 +1,9 @@
-﻿using System;
-using tar.Bitvavo.Api.Enums;
+﻿using tar.Bitvavo.Api.Enums;
 
 namespace tar.Bitvavo.Api.RestApi.Requests {
   public class AccountPlaceOrderLimitOptions {
     public decimal? Amount { get; }
-    public Guid? ClientOrderId { get; }
+    public string ClientOrderId { get; }
     public bool PostOnly { get; }
     public decimal Price { get; }
     public bool ResponseRequired { get; }
@@ -14,7 +13,7 @@ namespace tar.Bitvavo.Api.RestApi.Requests {
     public AccountPlaceOrderLimitOptions(
       decimal price,
       decimal? amount = null,
-      Guid? clientOrderId = null,
+      string clientOrderId = null,
       bool postOnly = false,
       bool responseRequired = true,
       AccountOrderSelfTradePrevention selfTradePrevention = AccountOrderSelfTradePrevention.DecrementAndCancel,

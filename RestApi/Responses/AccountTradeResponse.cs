@@ -6,7 +6,7 @@ using tar.Bitvavo.Api.Enums;
 namespace tar.Bitvavo.Api.RestApi.Responses {
   public class AccountTradeResponse {
     public decimal? Amount { get; set; }
-    public Guid? ClientOrderId { get; set; }
+    public string ClientOrderId { get; set; }
     public decimal? Fee { get; set; }
     public string FeeCurrency { get; set; }
     public Guid? Id { get; set; }

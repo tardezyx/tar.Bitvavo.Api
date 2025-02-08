@@ -97,16 +97,16 @@ namespace tar.Bitvavo.Api.WebSocketApi {
 
     public async Task GetOrderAsync(
       string market,
-      Guid orderId,
-      bool orderIdIsClientOrderId = false,
+      Guid orderId = default,
+      string clientOrderId = null,
       long? requestId = null
     ) {
       SendOptions sendOptions = new SendOptions(
         action: WebSocketAction.GetAccountOrder,
         authRequired: true,
+        clientOrderId: clientOrderId,
         market: market,
         orderId: orderId,
-        orderIdIsClientOrderId: orderIdIsClientOrderId,
         requestId: requestId
       );
 

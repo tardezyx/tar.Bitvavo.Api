@@ -18,8 +18,8 @@ namespace tar.Bitvavo.Api.RestApi {
     Task<Response<AccountFeesResponse>> GetFeesAsync(string market = null, FeeQuote? quote = null);
     Response<List<AccountOrderResponse>> GetOpenOrders(string market = null, string @base = null);
     Task<Response<List<AccountOrderResponse>>> GetOpenOrdersAsync(string market = null, string @base = null);
-    Response<AccountOrderResponse> GetOrder(string market, Guid orderId, bool orderIdIsClientOrderId = false);
-    Task<Response<AccountOrderResponse>> GetOrderAsync(string market, Guid orderId, bool orderIdIsClientOrderId = false);
+    Response<AccountOrderResponse> GetOrder(string market, Guid orderId = default, string clientOrderId = null);
+    Task<Response<AccountOrderResponse>> GetOrderAsync(string market, Guid orderId = default, string clientOrderId = null);
     Response<List<AccountOrderResponse>> GetOrders(string market, int? limit = null, DateTime? start = null, DateTime? end = null, Guid? orderIdFrom = null, Guid? orderIdTo = null);
     Task<Response<List<AccountOrderResponse>>> GetOrdersAsync(string market, int? limit = null, DateTime? start = null, DateTime? end = null, Guid? orderIdFrom = null, Guid? orderIdTo = null);
     Response<List<AccountTradeResponse>> GetTrades(string market, int? limit = null, DateTime? start = null, DateTime? end = null, Guid? tradeIdFrom = null, Guid? tradeIdTo = null);

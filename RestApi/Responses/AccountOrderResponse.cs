@@ -10,7 +10,7 @@ namespace tar.Bitvavo.Api.RestApi.Responses {
     public decimal? AmountQuote { get; set; }
     public decimal? AmountQuoteRemaining { get; set; }
     public decimal? AmountRemaining { get; set; }
-    public Guid? ClientOrderId { get; set; }
+    public string ClientOrderId { get; set; }
     [JsonConverter(typeof(DateTimeConverter))]
     public DateTime? Created { get; set; }
     public bool? DisableMarketProtection { get; set; }

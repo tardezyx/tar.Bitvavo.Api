@@ -10,7 +10,7 @@ namespace tar.Bitvavo.Api.WebSocketApi {
     Task GetDepositHistoryAsync(string symbol = null, int? limit = null, DateTime? start = null, DateTime? end = null, long? requestId = null);
     Task GetFeesAsync(string market = null, FeeQuote? quote = null, long? requestId = null);
     Task GetOpenOrdersAsync(string market = null, string @base = null, long? requestId = null);
-    Task GetOrderAsync(string market, Guid orderId, bool orderIdIsClientOrderId = false, long? requestId = null);
+    Task GetOrderAsync(string market, Guid orderId = default, string clientOrderId = null, long? requestId = null);
     Task GetOrdersAsync(string market, int? limit = null, DateTime? start = null, DateTime? end = null, Guid? orderIdFrom = null, Guid? orderIdTo = null, long? requestId = null);
     Task GetTradesAsync(string market, int? limit = null, DateTime? start = null, DateTime? end = null, Guid? tradeIdFrom = null, Guid? tradeIdTo = null, long? requestId = null);
     Task GetTransactionHistoryAsync(AccountTransactionType? type = null, int? maxItems = null, int? page = null, DateTime? fromDate = null, DateTime? toDate = null, long? requestId = null);

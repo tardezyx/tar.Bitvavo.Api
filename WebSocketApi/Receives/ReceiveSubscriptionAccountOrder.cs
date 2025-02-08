@@ -7,7 +7,7 @@ namespace tar.Bitvavo.Api.WebSocketApi.Receives {
   public class ReceiveSubscriptionAccountOrder {
     public decimal? Amount { get; set; }
     public decimal? AmountRemaining { get; set; }
-    public Guid? ClientOrderId { get; set; }
+    public string ClientOrderId { get; set; }
     [JsonConverter(typeof(DateTimeConverter))]
     public DateTime? Created { get; set; }
     public string Market { get; set; }
