@@ -23,7 +23,7 @@ Additionally it automatically
 ## Usage
 
 ```cs
-BvRestClient bvRestClient =  new(
+BvRestClient bvRestClient = new(
   accessWindow: TimeSpan.FromSeconds(10),
   apiKey: yourApiKey,
   apiSecret: yourApiSecret,
@@ -47,7 +47,7 @@ All parameters are optional:
 
 ### REST Methods
 
-You can use the main methods of the rest client and web socket client directly:
+You can use the main methods of the rest client directly:
 
 ```cs
 // for direct rest request usage you need to forward the expected response type <T>
@@ -55,7 +55,7 @@ var response1 = bvRestClient.SendRequest<T>(RestRequestOptions requestOptions);
 var response2 = await bvRestClient.SendRequestAsync<T>(RestRequestOptions requestOptions);
 ```
 
-But I recommend using the prepared methods which already have the correct parameters and response types:
+But I recommend using the prepared methods which already have the correct parameters and response types set:
 
 ```cs
 // account actions
@@ -86,7 +86,7 @@ Account methods need authentication for which a valid API key & secret needs to 
 
 The returned `Response<T>` class contains all necessary information:
 
-- `Data`: the response message as mapped object of type <T>
+- `Data`: the response message as mapped object of type `<T>`
 - `Error`: Bitvavo error description
 - `ErrorCode`: Bitvavo error code
 - `IsSuccessful`: indicator if the request was successful
@@ -113,9 +113,9 @@ await bvWebSocketClient.CloseAsync();
 await bvWebSocketClient.SendAsync(SendOptions sendOptions);
 ```
 
-But I recommend using the prepared methods which already have the correct parameters and response types.
+But I recommend using the prepared methods which already have the correct parameters and response types set.
 
-The same methods as for REST are provided and additionally you can use subscription methods:
+The same methods as for REST are provided. Additionally, you can use subscription methods:
 
 ```cs
 // account actions
@@ -131,7 +131,7 @@ var asset = await bvWebSocketClient.PublicInfos.GetAssetAsync(symbol);
 // etc.
 
 // subscriptions
-await bvWebSocketClient.Subscriptions.SubscribeToAccountOrdersAsync()
+await bvWebSocketClient.Subscriptions.SubscribeToAccountOrdersAsync();
 await bvWebSocketClient.Subscriptions.SubscribeToAccountOrdersAsync(markets);
 await bvWebSocketClient.Subscriptions.SubscribeToMarketCandlesAsync(markets, intervals);
 await bvWebSocketClient.Subscriptions.SubscribeToMarketOrderBookAsync(markets);
@@ -157,7 +157,7 @@ To receive web socket updates, you need to add event handlers for the correspond
 For example:
 
 ```cs
-// register/subscribe to events
+// subscribe to events
 bvWebSocketClient.OnClosing += BvWebSocketClient_OnClosing;
 bvWebSocketClient.OnConnecting += BvWebSocketClient_OnConnecting;
 bvWebSocketClient.OnMessageReceived += BvWebSocketClient_OnMessageReceived;
